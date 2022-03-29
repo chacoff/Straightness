@@ -1,6 +1,7 @@
 # Straightness
 
-stichting iamges and estimate the bending
+
+stichting images and estimate the bending
 
 
 Usage:
