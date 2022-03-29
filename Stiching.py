@@ -45,8 +45,8 @@ def Stiching_images(args):
 			stitched = stitched[y:y + h, x:x + w]
 
 		cv2.imwrite(args["output"], stitched)
-		cv2.imshow("Stitched", stitched)
-		cv2.waitKey(0)
+		# cv2.imshow("Stitched", stitched)
+		# cv2.waitKey(0)
 	else:
 		print("[INFO] image stitching failed ({})".format(status))
 

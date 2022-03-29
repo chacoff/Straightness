@@ -72,7 +72,7 @@ def BinaryImgfromContour(canvas2draw, contour):
                                       thickness=cv2.FILLED)
 
     binaryfromcnt = cv2.split(filled_contour)[:3][0]  # splitting in RGB channels
-    cv2.imwrite('images\\debugs\\filled.png', binaryfromcnt)
+    # cv2.imwrite('images\\debugs\\filled.png', binaryfromcnt)
 
     return binaryfromcnt
 
@@ -168,9 +168,30 @@ def mainParameters():
     return vars(ap.parse_args())
 
 
+def plot_image_grid(images, ncols=None, cmap='gray'):
+
+    if not ncols:
+        factors = [i for i in range(1, len(images)+1) if len(images) % i == 0]
+        ncols = factors[len(factors) // 2] if len(factors) else len(images) // 4 + 1
+
+    nrows = int(len(images) / ncols) + int(len(images) % ncols)
+    imgs = [images[i] if len(images) > i else None for i in range(nrows * ncols)]
+    f, axes = plt.subplots(nrows, ncols, figsize=(3*ncols, 2*nrows))
+    axes = axes.flatten()[:len(imgs)]
+
+    for img, ax in zip(imgs, axes.flatten()):
+        if np.any(img):
+            if len(img.shape) > 2 and img.shape[2] == 1:
+                img = img.squeeze()
+            ax.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), cmap=cmap)
+        ax.axis("off")
+
+
 if __name__ == '__main__':
+    images2plot = []
     params = mainParameters()
     stiched_image = Stiching_images(params)
+    images2plot.append(stiched_image)
 
     roi, blank_image, source = main(stiched_image, kern=3)  # args["output"] or images\\01.jpeg
     r, g, b = cv2.split(roi)[:3]  # splitting in RGB channels
@@ -179,6 +200,7 @@ if __name__ == '__main__':
     drawBoundingContour(blank_image, contours)
 
     binarycnt = BinaryImgfromContour(blank_image, contours)
+    images2plot.append(binarycnt)
 
     verxs, arcLine = find4Vertex(blank_image, binarycnt, display_info=True, n_points=400)
 
@@ -192,5 +214,9 @@ if __name__ == '__main__':
     print(f'[INFO] bending is {round(dist, 1)}px')
 
     cv2.drawContours(blank_image, contours, -1, (255, 255, 255), 1)
-    cv2.imshow('Result', blank_image)
-    cv2.waitKey()
+    images2plot.append(blank_image)
+
+    plot_image_grid(images2plot, 1)
+    plt.show()
+    # cv2.imshow('Result', blank_image)
+    # cv2.waitKey()
