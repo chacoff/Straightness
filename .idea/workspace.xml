@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="add plotting of the images">
+    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="fix the hull drawing, added a new parameter to display or not bouinding boxes, vertexes and convexity defects">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Magnus_beta1.py" beforeDir="false" afterPath="$PROJECT_DIR$/Magnus_beta1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.microsoft.alm.plugin.idea.common.ui.settings.TeamServicesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -193,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648547440587</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix the hull drawing, added a new parameter to display or not bouinding boxes, vertexes and convexity defects">
+      <created>1648567222899</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1648567222899</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,7 +214,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/PythonVersion" />
+      <path value="$PROJECT_DIR$/Straightness" />
+    </ignored-roots>
     <MESSAGE value="add plotting of the images" />
-    <option name="LAST_COMMIT_MESSAGE" value="add plotting of the images" />
+    <MESSAGE value="fix the hull drawing, added a new parameter to display or not bouinding boxes, vertexes and convexity defects" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the hull drawing, added a new parameter to display or not bouinding boxes, vertexes and convexity defects" />
   </component>
 </project>

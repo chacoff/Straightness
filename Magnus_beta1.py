@@ -167,6 +167,11 @@ def plot_image_grid(images, ncols=None, cmap='gray'):
             ax.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), cmap=cmap)
         ax.axis("off")
 
+    mng = plt.get_current_fig_manager()
+    mng.full_screen_toggle()
+    plt.tight_layout()
+    plt.show()
+
 
 if __name__ == '__main__':
     images2plot = []
@@ -198,6 +203,4 @@ if __name__ == '__main__':
         drawApproxPolyDP(blank_image, res)
 
     images2plot.append(blank_image)
-
     plot_image_grid(images2plot, 1)
-    plt.show()
