@@ -1,5 +1,5 @@
 # Introduction 
-Stitchting images and estimate the bending
+Stitching images and estimate the bending
 
 # Getting Started
 
@@ -9,6 +9,7 @@ Stitchting images and estimate the bending
 - scipy 1.7.3
 - OpenCV-python 4.5.5.62
 - imutils 0.5.4
+- python 3.7
 
 ## Usage
 

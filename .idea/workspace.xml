@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="added readme and new parameters to display or not all the annotations generated during calculations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="find4vertex update">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +34,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Magnus_beta1.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Stiching.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -235,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648736560980</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="find4vertex update">
+      <created>1679776432901</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679776432901</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +263,7 @@
     <MESSAGE value="add plotting of the images" />
     <MESSAGE value="fix the hull drawing, added a new parameter to display or not bouinding boxes, vertexes and convexity defects" />
     <MESSAGE value="added readme and new parameters to display or not all the annotations generated during calculations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added readme and new parameters to display or not all the annotations generated during calculations" />
+    <MESSAGE value="find4vertex update" />
+    <option name="LAST_COMMIT_MESSAGE" value="find4vertex update" />
   </component>
 </project>
