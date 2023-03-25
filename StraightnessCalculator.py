@@ -35,7 +35,7 @@ def drawApproxPolyDP(canvas2draw, res):
         cv2.circle(canvas2draw, (x, y), 4, [0, 255, 255], -1)
 
 
-def drawReturnMaxPoint(res, defects, canvas2draw):
+def drawReturnMaxPoint(res, defects, canvas2draw, n_points=200):
 
     if type(defects) != type(None):  # avoid crashing
         # cnt = 0
@@ -47,14 +47,14 @@ def drawReturnMaxPoint(res, defects, canvas2draw):
             a = math.sqrt((end[0] - start[0]) ** 2 + (end[1] - start[1]) ** 2)
             b = math.sqrt((far[0] - start[0]) ** 2 + (far[1] - start[1]) ** 2)
             c = math.sqrt((end[0] - far[0]) ** 2 + (end[1] - far[1]) ** 2)
+            cv2.line(canvas2draw, start, end, [211, 84, 0], 1)
             cv2.circle(canvas2draw, far, 4, [211, 84, 0], -1)  # the max curvature
             angle = math.acos((b ** 2 + c ** 2 - a ** 2) / (2 * b * c))  # cosine theorem
 
-            # if angle <= math.pi / 2:  # angle less than 90 degree, treat as fingers
-            #    cnt += 1
-            #    cv2.circle(blank_image, far, 8, [211, 84, 0], -1)
+            # arc_line = list(zip(*line(*vertexs[3], *vertexs[0])))  # faster but requires scikit-image
+            arc_line = np.linspace(start, end, n_points, dtype=int)  # n_points samples on the line
 
-    return far, round(angle, 2)
+    return far, round(angle, 2), arc_line
 
 
 def drawBoundingContour(canvas2draw, contours):
@@ -72,12 +72,11 @@ def BinaryImgfromContour(canvas2draw, contour):
                                       thickness=cv2.FILLED)
 
     binaryfromcnt = cv2.split(filled_contour)[:3][0]  # splitting in RGB channels
-    cv2.imwrite('images\\debugs\\filled.png', binaryfromcnt)
 
     return binaryfromcnt
 
 
-def find4Vertex(canvas2draw, binaryfromcnt, display_info=False, n_points=180):
+def find4Vertex(canvas2draw, binaryfromcnt):
     # finding vertex with Shi Tomasi and good features to track
 
     corners = cv2.goodFeaturesToTrack(binaryfromcnt, 4, 0.01, 10, useHarrisDetector=False, k=0.04)  # set to find maximum 4 vertex
@@ -87,26 +86,9 @@ def find4Vertex(canvas2draw, binaryfromcnt, display_info=False, n_points=180):
     for i in corners:
         x, y = i.ravel()
         vertexs.append((x, y))  # 0 BR - 1 TL - 2 TR - 3 BL
-        if display_info:
-            cv2.circle(canvas2draw, (x, y), 3, [255, 50, 255], -1)
+        cv2.circle(canvas2draw, (x, y), 3, [255, 50, 255], -1)
 
-    # arc_line = list(zip(*line(*vertexs[3], *vertexs[0])))  # faster but requires scikit-image
-    arc_line = np.linspace(vertexs[2], vertexs[1], n_points, dtype=int)  # 100 samples on the line
-
-    if display_info:
-        for pl in arc_line:
-            cv2.circle(canvas2draw, (pl[0], pl[1]), 1, [0, 255, 255], -1)
-
-    '''''''''        
-        print(f'{len(vertexs)} vertex\n '
-              f'BottomRight: {vertexs[0]}\n '
-              f'TopLeft: {vertexs[1]}\n '
-              f'TopRight: {vertexs[2]}\n '
-              f'BottomLeft: {vertexs[3]}')
-    cv2.line(canvas2draw, vertexs[2], vertexs[1], (0, 0, 255), thickness=1, lineType=8)
-    '''''''''
-
-    return vertexs, arc_line
+    return vertexs
 
 
 def BorderDetectionCanny(border_channel):
@@ -114,19 +96,6 @@ def BorderDetectionCanny(border_channel):
     # [0] instead of using hierarchy for findContours()
     contours = cv2.findContours(canny.copy(), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)[0]
     return contours
-
-
-def UniqueBottomProfile(contours, corns, canvas2draw):  # trying to get rid of this unique one time method
-    contorno = np.vstack(contours).squeeze()  # stack them together followed by squeeze to remove redundant axis.
-    bottom_profile = []
-    for i in range(contorno.shape[0]):
-        if contorno[i][1] >= corns[3][1]:
-            bottom_profile.append(list(contorno[i]))
-        if contorno[i][0] >= corns[0][0]:
-            break
-    bottom_profile = np.array(bottom_profile, np.int32)
-    bottom_profile = bottom_profile.reshape((-1, 1, 2))
-    cv2.drawContours(canvas2draw, bottom_profile, -1, (0, 255, 255), 2)  # [bottom_profile] to draw
 
 
 def mask2HSV(roi_image):
@@ -160,37 +129,78 @@ def main(image_dir, kern=3):
     return roi, blank_image, source
 
 
+def str2bool(v):
+    if isinstance(v, bool):
+        return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
+
 def mainParameters():
     ap = argparse.ArgumentParser()
     ap.add_argument("-i", "--images", type=str, required=True, help="path to input directory of images to stitch")
     ap.add_argument("-o", "--output", type=str, required=True, help="path to the output image")
     ap.add_argument("-c", "--crop", type=int, default=0, help="whether to crop out largest rectangular region")
+    ap.add_argument("-d", "--display", type=str2bool, help="display vertexes and bounding box")
     return vars(ap.parse_args())
 
 
+def plot_image_grid(images, ncols=None, cmap='gray'):
+
+    if not ncols:
+        factors = [i for i in range(1, len(images)+1) if len(images) % i == 0]
+        ncols = factors[len(factors) // 2] if len(factors) else len(images) // 4 + 1
+
+    nrows = int(len(images) / ncols) + int(len(images) % ncols)
+    imgs = [images[i] if len(images) > i else None for i in range(nrows * ncols)]
+    f, axes = plt.subplots(nrows, ncols, figsize=(3*ncols, 2*nrows))
+    axes = axes.flatten()[:len(imgs)]
+
+    for img, ax in zip(imgs, axes.flatten()):
+        if np.any(img):
+            if len(img.shape) > 2 and img.shape[2] == 1:
+                img = img.squeeze()
+            ax.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB), cmap=cmap)
+        ax.axis("off")
+
+    mng = plt.get_current_fig_manager()
+    mng.full_screen_toggle()
+    plt.tight_layout()
+    plt.show()
+
+
 if __name__ == '__main__':
+    images2plot = []
     params = mainParameters()
     stiched_image = Stiching_images(params)
+    images2plot.append(stiched_image)
 
     roi, blank_image, source = main(stiched_image, kern=3)  # args["output"] or images\\01.jpeg
     r, g, b = cv2.split(roi)[:3]  # splitting in RGB channels
 
     contours = BorderDetectionCanny(r)
-    drawBoundingContour(blank_image, contours)
 
     binarycnt = BinaryImgfromContour(blank_image, contours)
-
-    verxs, arcLine = find4Vertex(blank_image, binarycnt, display_info=True, n_points=400)
+    images2plot.append(binarycnt)
 
     res, defects = FindHullDefects(contours)  # [cnt, defects]
-    drawApproxPolyDP(blank_image, res)
 
-    point, angle = drawReturnMaxPoint(res, defects, blank_image)
+    point, angle, arcLine = drawReturnMaxPoint(res, defects, blank_image, n_points=400)
 
     knot, dist = closest_node(point, arcLine)
     cv2.circle(blank_image, (knot[0], knot[1]), 3, [255, 50, 255], -1)
     print(f'[INFO] bending is {round(dist, 1)}px')
 
-    cv2.drawContours(blank_image, contours, -1, (255, 255, 255), 1)
-    cv2.imshow('Result', blank_image)
-    cv2.waitKey()
+    cv2.drawContours(blank_image, contours, -1, (255, 255, 255), 1)  # [contours] to draw
+
+    if params['display']:
+        drawBoundingContour(blank_image, contours)
+        find4Vertex(blank_image, binarycnt)
+        drawApproxPolyDP(blank_image, res)
+
+    images2plot.append(blank_image)
+    plot_image_grid(images2plot, 1)
