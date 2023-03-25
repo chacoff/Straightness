@@ -78,7 +78,6 @@ def BinaryImgfromContour(canvas2draw, contour):
 
 def find4Vertex(canvas2draw, binaryfromcnt):
     # finding vertex with Shi Tomasi and good features to track
-
     corners = cv2.goodFeaturesToTrack(binaryfromcnt, 4, 0.01, 10, useHarrisDetector=False, k=0.04)  # set to find maximum 4 vertex
     corners = np.int0(corners)
 
