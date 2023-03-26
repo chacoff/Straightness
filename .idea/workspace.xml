@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="added original image">
-      <change afterPath="$PROJECT_DIR$/images/20211207_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trials/BgRemover.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Straightness.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Straightness.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/4.tif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/cam01.bmp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/20211207_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/20211207_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trials/BgRemover.py" beforeDir="false" afterPath="$PROJECT_DIR$/trials/BgRemover.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
