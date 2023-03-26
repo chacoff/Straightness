@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="find4vertex update">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="added original image">
+      <change afterPath="$PROJECT_DIR$/trials/MOG2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trials/testing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Straightness.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Straightness.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,20 +51,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Coding\801_Straightness\trials" />
       <recent name="C:\Users\gomezja\PycharmProjects\Straightness\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.testing">
-    <configuration name="Magnus3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.MOG2">
+    <configuration name="MOG2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Straightness" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -70,7 +77,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Magnus3.py" />
+      <option name="SCRIPT_NAME" value="C:\Coding\801_Straightness\trials\MOG2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,7 +182,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testing.py" />
+      <option name="SCRIPT_NAME" value="C:\Coding\801_Straightness\trials\testing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -186,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.MOG2" />
         <item itemvalue="Python.testing" />
         <item itemvalue="Python.Stiching" />
         <item itemvalue="Python.Merging" />
         <item itemvalue="Python.Magnus_beta1" />
-        <item itemvalue="Python.Magnus3" />
       </list>
     </recent_temporary>
   </component>
@@ -241,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679776432901</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added original image">
+      <created>1679786612484</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679786612484</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,6 +278,7 @@
     <MESSAGE value="fix the hull drawing, added a new parameter to display or not bouinding boxes, vertexes and convexity defects" />
     <MESSAGE value="added readme and new parameters to display or not all the annotations generated during calculations" />
     <MESSAGE value="find4vertex update" />
-    <option name="LAST_COMMIT_MESSAGE" value="find4vertex update" />
+    <MESSAGE value="added original image" />
+    <option name="LAST_COMMIT_MESSAGE" value="added original image" />
   </component>
 </project>
