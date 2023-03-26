@@ -7,9 +7,9 @@ Stitching images and estimate the bending
 - numpy 1.21.5
 - matplotlib 3.5.1
 - scipy 1.7.3
-- OpenCV-python 4.5.5.62
+- OpenCV-python 4.7.0
 - imutils 0.5.4
-- python 3.7
+- python 3.9
 
 ## Usage
 
