@@ -48,28 +48,46 @@ def unsharp_mask(image, kernel_size=(5, 5), sigma=3.0, amount=2.0, threshold=0):
 if __name__ == '__main__':
 
     # Parameters
+    postpro = False
+    pad = 100
     input_size = 320  # expected by u2
-    image_path = '..\\images\\beam\\2023-03-16-18-25-06_DEV_000F314F49C9.bmp'
+    image_path = '..\\images\\beam\\2023-03-16-18-25-06_DEV_000F314F49C7.bmp'
+    name = '..\\images\\beam\\d'+image_path.split('\\')[-1]
     model_path = 'C:\\Users\\gomezja\\.u2net\\u2net.onnx'
     onnx_session = onnxruntime.InferenceSession(model_path)
 
-    # Processing
+    # Image Pre-processing
     tic = time.perf_counter()
-    image_raw = cv2.imread(image_path)
-    image = unsharp_mask(image_raw)
-    onnx_result = run_inference(onnx_session, input_size, image)
-    toc = time.perf_counter()
 
+    image_raw = cv2.imread(image_path)
+    image_pad = cv2.copyMakeBorder(image_raw, 0, 0, pad, pad, borderType=cv2.BORDER_CONSTANT)
+    image = unsharp_mask(image_pad)
+
+    # Image to the network
+    onnx_result = run_inference(onnx_session, input_size, image)
+
+    toc = time.perf_counter()
     elapsed_time_text = f'elapsed: {toc - tic:0.2f}s'
 
-    debug_image = cv2.resize(onnx_result, dsize=(image.shape[1], image.shape[0]))
-    # -- debug_image post processing
+    mask = cv2.resize(onnx_result, dsize=(image.shape[1], image.shape[0]))
 
-    # --
-    res_image = cv2.bitwise_and(image, image, mask=debug_image)
+    """
+        Post Process the mask for a smooth boundary by applying Morphological Operations
+        Research based on paper: https://www.sciencedirect.com/science/article/pii/S2352914821000757
+    """
+    if postpro:
+        mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, (3, 3))
+        mask = cv2.GaussianBlur(mask, (5, 5), sigmaX=2, sigmaY=2, borderType=cv2.BORDER_DEFAULT)
+        mask = np.where(mask < 127, 0, 255).astype(np.uint8)  # convert again to binary
 
-    cv2.putText(image, elapsed_time_text, (30, 90), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 255, 0), 3, cv2.LINE_AA)
-    cv2.imshow('result with U2net', cv2.resize(np.vstack((image, res_image)), None, fx=0.28, fy=0.28))
+    res_image = cv2.bitwise_and(image, image, mask=mask)
+
+    # Unpadding resulting image
+    res_image = res_image[:, pad:res_image.shape[1]-pad]  # [y:y+h, x:x+w]
+
+    cv2.putText(image_raw, elapsed_time_text, (30, 100), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 255, 0), 3, cv2.LINE_AA)
+    cv2.imshow('result with U2net', cv2.resize(np.vstack((image_raw, res_image)), None, fx=0.28, fy=0.28))
+    cv2.imwrite(name, res_image)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()
