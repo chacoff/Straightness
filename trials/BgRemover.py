@@ -22,8 +22,8 @@ if __name__ == '__main__':
 
     # On initialization
     modelName = new_session(model_name='u2net')  # u2net, u2netp, silueta, u2net_human_seg, u2net_cloth_seg
-    input_path = '..\\images\\beam\\2023-03-16-18-25-06_DEV_000F314F49C9.bmp'
-    output_path = '..\\images\\20211207_0.png'
+    input_path = '..\\images\\20211207_162959.jpg'
+    output_path = '..\\images\\20211207_1.png'
 
     tic = time.perf_counter()
     input_raw = cv2.imread(input_path)

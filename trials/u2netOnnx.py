@@ -51,9 +51,9 @@ if __name__ == '__main__':
     postpro = False
     pad = 100
     input_size = 320  # expected by u2
-    image_path = '..\\images\\beam\\2023-03-16-18-25-06_DEV_000F314F49C7.bmp'
-    name = '..\\images\\beam\\d'+image_path.split('\\')[-1]
-    model_path = 'C:\\Users\\gomezja\\.u2net\\u2net.onnx'
+    image_path = '..\\images\\20211207_162959.jpg'
+    name = '..\\images\\d'+image_path.split('\\')[-1]
+    model_path = 'C:\\Users\\jaime\\.u2net\\u2net.onnx'
     onnx_session = onnxruntime.InferenceSession(model_path)
 
     # Image Pre-processing
