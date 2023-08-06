@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="added original image">
+    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="testing if it works with opencv 4.7.0">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trials/u2netOnnx.py" beforeDir="false" afterPath="$PROJECT_DIR$/trials/u2netOnnx.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Projects/801_Straightness&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
@@ -59,7 +60,7 @@
       <recent name="C:\Users\gomezja\PycharmProjects\Straightness\images" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.u2netOnnx">
+  <component name="RunManager" selected="Python.BgRemover">
     <configuration name="BgRemover" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Straightness" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,8 +182,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.u2netOnnx" />
         <item itemvalue="Python.BgRemover" />
+        <item itemvalue="Python.u2netOnnx" />
         <item itemvalue="Python.ImageLoopMOG2" />
         <item itemvalue="Python tests.Python tests in C:/Users/gomezja/PycharmProjects/Straightness/trials/ImageLoopMOG2.py" />
         <item itemvalue="Python.MOG2" />
@@ -243,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679786612484</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="testing if it works with opencv 4.7.0">
+      <created>1682190938371</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682190938371</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,6 +275,7 @@
     <MESSAGE value="added readme and new parameters to display or not all the annotations generated during calculations" />
     <MESSAGE value="find4vertex update" />
     <MESSAGE value="added original image" />
-    <option name="LAST_COMMIT_MESSAGE" value="added original image" />
+    <MESSAGE value="testing if it works with opencv 4.7.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing if it works with opencv 4.7.0" />
   </component>
 </project>
