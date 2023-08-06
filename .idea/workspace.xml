@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="testing if it works with opencv 4.7.0">
+=======
+    <list default="true" id="56d2d4a5-8d14-46b8-8bbc-2d6b2b43ab5a" name="Changes" comment="u2 inference service: pre (added padding) and post processing">
+      <change afterPath="$PROJECT_DIR$/trials/mutexT.py" afterDir="false" />
+>>>>>>> fc23bc7f168e1645d8f983bff497db12b611641f
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -56,11 +61,16 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gomezja\PycharmProjects\Straightness\trials" />
       <recent name="C:\Coding\801_Straightness\trials" />
       <recent name="C:\Users\gomezja\PycharmProjects\Straightness\images" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.BgRemover">
+=======
+  <component name="RunManager" selected="Python.Matrix">
+>>>>>>> fc23bc7f168e1645d8f983bff497db12b611641f
     <configuration name="BgRemover" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Straightness" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -82,7 +92,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ImageLoopMOG2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Matrix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Straightness" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,32 +100,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trials" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Tmb" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trials/ImageLoopMOG2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MOG2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Straightness" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Coding\801_Straightness\trials\MOG2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Tmb/Matrix.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -145,6 +134,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="mutexT (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Straightness" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trials" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trials/mutexT.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mutexT" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Straightness" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mutex" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\gomezja\PycharmProjects\Straightness\trials\mutexT.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="u2netOnnx" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Straightness" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,27 +197,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in C:/Users/gomezja/PycharmProjects/Straightness/trials/ImageLoopMOG2.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="Straightness" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/trials" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/trials/ImageLoopMOG2.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+<<<<<<< HEAD
         <item itemvalue="Python.BgRemover" />
         <item itemvalue="Python.u2netOnnx" />
         <item itemvalue="Python.ImageLoopMOG2" />
         <item itemvalue="Python tests.Python tests in C:/Users/gomezja/PycharmProjects/Straightness/trials/ImageLoopMOG2.py" />
         <item itemvalue="Python.MOG2" />
+=======
+        <item itemvalue="Python.Matrix" />
+        <item itemvalue="Python.u2netOnnx" />
+        <item itemvalue="Python.mutexT (1)" />
+        <item itemvalue="Python.mutexT" />
+        <item itemvalue="Python.BgRemover" />
+>>>>>>> fc23bc7f168e1645d8f983bff497db12b611641f
       </list>
     </recent_temporary>
   </component>
@@ -244,12 +269,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679786612484</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00007" summary="testing if it works with opencv 4.7.0">
       <created>1682190938371</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
       <updated>1682190938371</updated>
+=======
+    <task id="LOCAL-00007" summary="u2 inference service: pre (added padding) and post processing">
+      <created>1679930591825</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679930591825</updated>
+>>>>>>> fc23bc7f168e1645d8f983bff497db12b611641f
     </task>
     <option name="localTasksCounter" value="8" />
     <servers />
@@ -275,7 +309,12 @@
     <MESSAGE value="added readme and new parameters to display or not all the annotations generated during calculations" />
     <MESSAGE value="find4vertex update" />
     <MESSAGE value="added original image" />
+<<<<<<< HEAD
     <MESSAGE value="testing if it works with opencv 4.7.0" />
     <option name="LAST_COMMIT_MESSAGE" value="testing if it works with opencv 4.7.0" />
+=======
+    <MESSAGE value="u2 inference service: pre (added padding) and post processing" />
+    <option name="LAST_COMMIT_MESSAGE" value="u2 inference service: pre (added padding) and post processing" />
+>>>>>>> fc23bc7f168e1645d8f983bff497db12b611641f
   </component>
 </project>

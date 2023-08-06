@@ -45,6 +45,17 @@ def unsharp_mask(image, kernel_size=(5, 5), sigma=3.0, amount=2.0, threshold=0):
     return sharpened
 
 
+def change_brightness(img, value=30):
+    hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    h, s, v = cv2.split(hsv)
+    v = cv2.add(v, value)
+    v[v > 255] = 255
+    v[v < 0] = 0
+    final_hsv = cv2.merge((h, s, v))
+    img = cv2.cvtColor(final_hsv, cv2.COLOR_HSV2BGR)
+    return img
+
+
 if __name__ == '__main__':
 
     # Parameters
@@ -61,7 +72,8 @@ if __name__ == '__main__':
 
     image_raw = cv2.imread(image_path)
     image_pad = cv2.copyMakeBorder(image_raw, 0, 0, pad, pad, borderType=cv2.BORDER_CONSTANT)
-    image = unsharp_mask(image_pad)
+    image_pad = unsharp_mask(image_pad)
+    image = change_brightness(image_pad, value=-10)
 
     # Image to the network
     onnx_result = run_inference(onnx_session, input_size, image)
@@ -84,10 +96,11 @@ if __name__ == '__main__':
 
     # Unpadding resulting image
     res_image = res_image[:, pad:res_image.shape[1]-pad]  # [y:y+h, x:x+w]
+    res_image = change_brightness(res_image, value=10)
 
     cv2.putText(image_raw, elapsed_time_text, (30, 100), cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 255, 0), 3, cv2.LINE_AA)
-    cv2.imshow('result with U2net', cv2.resize(np.vstack((image_raw, res_image)), None, fx=0.28, fy=0.28))
-    cv2.imwrite(name, res_image)
+    cv2.imshow('result with U2net', cv2.resize(np.vstack((image_raw, res_image)), None, fx=0.25, fy=0.25))
+    # cv2.imwrite(name, res_image)
 
     cv2.waitKey(0)
     cv2.destroyAllWindows()

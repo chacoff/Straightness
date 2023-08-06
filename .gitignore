@@ -36,4 +36,8 @@ trials/testing.py
 /.idea/
 /images/cleanbg.jpg
 /images/beam/
+<<<<<<< HEAD
 /images/20211207_1.png
+=======
+/images/beam2/
+>>>>>>> fc23bc7f168e1645d8f983bff497db12b611641f
